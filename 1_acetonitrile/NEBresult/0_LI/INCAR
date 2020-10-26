@@ -1,0 +1,38 @@
+LWAVE = .FALSE.
+LCHARG = .FALSE.
+# partial occupation
+ISMEAR = 0 # 0-Gaussian Smearing 1-Methfessel-Paxton method(defalut)
+SIGMA = 0.2 # defalut = 0.2 ; When cell is larger,sigma -> 0.05
+#ISPIN = 2 # 1- non-spin polarized 2 - spin polarized
+ISTART = 0
+
+#recommended minimum step
+ENCUT = 400 #ENMAX = 400
+LREAL = Auto # .FALSE. for GPU
+#PREC = Accurate
+#Electronic relaxation
+EDIFF = 1E-4 #Energy
+EDIFFG = -0.1 #force
+
+# relaxation part
+NELM = 500
+NELMIN = 6    #at least electronic SC step
+NSW = 300     #at most ionic step
+
+ISIF = 2      #2 - no unitcell change 3- unitcell shape/volume change
+#ALGO = VeryFast
+
+
+#PBE0
+GGA = PE      #use PB
+
+#NEB
+LCLIMB = .TRUE.
+IMAGES = 15
+SPRING = -5
+IOPT = 7 # 2 - cg 3 - quick-min  7- FIRE
+
+IBRION = 3    #1- quasi-Newton 2-conjugate-gradient 3-quickmin
+SMASS = 2
+POTIM = 0.0
+
