@@ -1,0 +1,23 @@
+variable T  equal 1000
+variable P  equal 1.01325
+variable nfreq equal 10
+variable neqstep equal 10000
+variable nstep equal 1000000 #1ns
+
+
+#neighbor
+#neighbor        0.0 bin
+
+#trjactory
+dump   lammpstrj all atom 10 movie.lammpstrj
+thermo ${nfreq}  #compute and print thermodynamic informations
+
+#group
+
+fix 1 all nvt temp ${T} ${T} ${nfreq}
+
+thermo_style custom time pe emol
+
+
+run ${nstep}
+
